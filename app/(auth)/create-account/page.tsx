@@ -26,6 +26,7 @@ export default function CreateAccount() {
           type="text"
           placeholder="Username"
           required
+          defaultValue={state?.values?.username}
           errors={state?.fieldErrors?.username}
         />
 
@@ -34,6 +35,7 @@ export default function CreateAccount() {
           type="email"
           placeholder="Email"
           required
+          defaultValue={state?.values?.email}
           errors={state?.fieldErrors?.email}
         />
 
@@ -42,6 +44,7 @@ export default function CreateAccount() {
           type="password"
           placeholder="Password"
           required
+          defaultValue={state?.values?.password}
           errors={state?.fieldErrors?.password}
         />
 
@@ -50,6 +53,7 @@ export default function CreateAccount() {
           type="password"
           placeholder="Confirm password"
           required
+          defaultValue={state?.values?.passwordConfirm}
           errors={state?.fieldErrors?.passwordConfirm}
         />
 
