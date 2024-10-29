@@ -17,23 +17,15 @@ export default function CreateAccount() {
           type="text"
           placeholder="Username"
           required
-          errors={[]}
         />
 
-        <FormInput
-          name="email"
-          type="email"
-          placeholder="Email"
-          required
-          errors={[]}
-        />
+        <FormInput name="email" type="email" placeholder="Email" required />
 
         <FormInput
           name="password"
           type="password"
           placeholder="Password"
           required
-          errors={[]}
         />
 
         <FormInput
@@ -41,7 +33,6 @@ export default function CreateAccount() {
           type="password"
           placeholder="Confirm password"
           required
-          errors={[]}
         />
 
         <FormButton label="Create account" />
