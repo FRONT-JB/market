@@ -10,6 +10,7 @@ interface FormButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export default function FormButton({
   label,
   className,
+  disabled = false,
   ...restProps
 }: FormButtonProps) {
   const { pending } = useFormStatus();
@@ -17,7 +18,7 @@ export default function FormButton({
   return (
     <button
       className={`primary-btn h-10 disabled:bg-neutral-400 disabled:text-neutral-300 disabled:cursor-not-allowed ${className}`}
-      disabled={pending}
+      disabled={disabled || pending}
       {...restProps}
     >
       {pending ? "Loading..." : label}
