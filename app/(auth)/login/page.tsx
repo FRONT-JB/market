@@ -1,10 +1,11 @@
 "use client";
 
-import FormButton from "@/components/form-button";
-import FormInput from "@/components/form-input";
-import SocialLoginButton from "@/components/social-login-button";
+import FormButton from "@/components/form/form-button";
+import FormInput from "@/components/form/form-input";
+
 import { handleForm } from "./actions";
 import { useActionState } from "react";
+import SocialLoginButton from "@/components/button/social-login-button";
 
 export default function Login() {
   const [state, formAction] = useActionState(handleForm, {

@@ -1,6 +1,6 @@
-import FormButton from "@/components/form-button";
-import FormInput from "@/components/form-input";
-import SocialLoginButton from "@/components/social-login-button";
+import SocialLoginButton from "@/components/button/social-login-button";
+import FormButton from "@/components/form/form-button";
+import FormInput from "@/components/form/form-input";
 
 export default function CreateAccount() {
   return (
