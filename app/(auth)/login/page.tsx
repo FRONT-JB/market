@@ -3,6 +3,11 @@ import FormInput from "@/components/form-input";
 import SocialLoginButton from "@/components/social-login-button";
 
 export default function Login() {
+  async function handleForm(formData: FormData) {
+    "use server";
+    console.log("running", formData);
+  }
+
   return (
     <div className="flex flex-col gap-10 py-8 px-6">
       <div className="flex flex-col gap-2 *:font-medium">
@@ -11,9 +16,16 @@ export default function Login() {
         <h2 className="text-xl">Login to your account</h2>
       </div>
 
-      <form className="flex flex-col gap-3">
-        <FormInput type="email" placeholder="Email" required errors={[]} />
+      <form action={handleForm} className="flex flex-col gap-3">
         <FormInput
+          name="email"
+          type="email"
+          placeholder="Email"
+          required
+          errors={[]}
+        />
+        <FormInput
+          name="password"
           type="password"
           placeholder="Password"
           required
