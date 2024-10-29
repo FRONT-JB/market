@@ -1,7 +1,7 @@
 "use client";
 
-import FormButton from "@/components/form/form-button";
-import FormInput from "@/components/form/form-input";
+import Button from "@/components/form/button";
+import Input from "@/components/form/input";
 
 import { handleForm } from "./actions";
 import { useActionState } from "react";
@@ -22,15 +22,15 @@ export default function Login() {
       </div>
 
       <form action={formAction} className="flex flex-col gap-3">
-        <FormInput name="email" type="email" placeholder="Email" required />
-        <FormInput
+        <Input name="email" type="email" placeholder="Email" required />
+        <Input
           name="password"
           type="password"
           placeholder="Password"
           required
         />
 
-        <FormButton label="Login" />
+        <Button label="Login" />
       </form>
 
       <div className="w-full h-px bg-neutral-500" />

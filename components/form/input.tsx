@@ -1,16 +1,16 @@
 import { InputHTMLAttributes } from "react";
 
-interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   errors?: string[];
 }
 
-export default function FormInput({
+export default function Input({
   type,
   placeholder,
   required,
   errors = [],
   ...restProps
-}: FormInputProps) {
+}: InputProps) {
   return (
     <div className="flex flex-col gap-2">
       <input

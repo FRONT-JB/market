@@ -3,16 +3,16 @@
 import { ButtonHTMLAttributes } from "react";
 import { useFormStatus } from "react-dom";
 
-interface FormButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: React.ReactNode;
 }
 
-export default function FormButton({
+export default function Button({
   label,
   className,
   disabled = false,
   ...restProps
-}: FormButtonProps) {
+}: ButtonProps) {
   const { pending } = useFormStatus();
 
   return (

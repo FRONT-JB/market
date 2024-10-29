@@ -1,16 +1,14 @@
 "use client";
 
 import SocialLoginButton from "@/components/button/social-login-button";
-import FormButton from "@/components/form/form-button";
-import FormInput from "@/components/form/form-input";
+import Button from "@/components/form/button";
+import Input from "@/components/form/input";
 
 import { createAccount } from "./actions";
 import { useActionState } from "react";
 
 export default function CreateAccount() {
   const [state, formAction] = useActionState(createAccount, null);
-
-  console.log(state);
 
   return (
     <div className="flex flex-col gap-10 py-8 px-6">
@@ -21,7 +19,7 @@ export default function CreateAccount() {
       </div>
 
       <form action={formAction} className="flex flex-col gap-3">
-        <FormInput
+        <Input
           name="username"
           type="text"
           placeholder="Username"
@@ -30,7 +28,7 @@ export default function CreateAccount() {
           errors={state?.fieldErrors?.username}
         />
 
-        <FormInput
+        <Input
           name="email"
           type="email"
           placeholder="Email"
@@ -39,7 +37,7 @@ export default function CreateAccount() {
           errors={state?.fieldErrors?.email}
         />
 
-        <FormInput
+        <Input
           name="password"
           type="password"
           placeholder="Password"
@@ -48,7 +46,7 @@ export default function CreateAccount() {
           errors={state?.fieldErrors?.password}
         />
 
-        <FormInput
+        <Input
           name="passwordConfirm"
           type="password"
           placeholder="Confirm password"
@@ -57,7 +55,7 @@ export default function CreateAccount() {
           errors={state?.fieldErrors?.passwordConfirm}
         />
 
-        <FormButton label="Create account" />
+        <Button label="Create account" />
       </form>
 
       <div className="w-full h-px bg-neutral-500" />
