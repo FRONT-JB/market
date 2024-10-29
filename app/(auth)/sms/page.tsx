@@ -1,7 +1,20 @@
+"use client";
+
 import Button from "@/components/form/button";
 import Input from "@/components/form/input";
+import { useActionState } from "react";
+import { ActionState, smsVerify } from "./actions";
+
+const initialState: ActionState = {
+  token: false,
+  phone: "",
+  code: "",
+  error: undefined,
+};
 
 export default function SMSLogin() {
+  const [state, formAction] = useActionState(smsVerify, initialState);
+
   return (
     <div className="flex flex-col gap-10 py-8 px-6">
       <div className="flex flex-col gap-2 *:font-medium">
@@ -10,17 +23,31 @@ export default function SMSLogin() {
         <h2 className="text-xl">Verify your phone number</h2>
       </div>
 
-      <form className="flex flex-col gap-3">
-        <Input name="phone" type="number" placeholder="Phone number" required />
-
+      <form action={formAction} className="flex flex-col gap-3">
         <Input
-          name="code"
+          name="phone"
           type="number"
-          placeholder="Verification code"
+          placeholder="Phone number"
           required
+          defaultValue={state?.phone}
+          errors={state?.error}
         />
 
-        <Button label="Verify" />
+        {state?.token && (
+          <Input
+            name="code"
+            type="number"
+            placeholder="Verification code"
+            required
+            min={100000}
+            max={999999}
+            errors={state?.error}
+          />
+        )}
+
+        <Button
+          label={state?.token ? "Verify Token" : "Send Verification Code"}
+        />
       </form>
     </div>
   );

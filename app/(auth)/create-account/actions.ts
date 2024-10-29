@@ -1,10 +1,7 @@
 "use server";
 
+import { PASSWORD_REGEX } from "@/lib/constants";
 import { z } from "zod";
-
-const passwordRegex = new RegExp(
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*?[#?!@$%^&*-]).+$/
-);
 
 const checkUsername = (username: string) => {
   return !username.includes("potato");
@@ -27,11 +24,11 @@ const formSchema = z
       .trim()
       .refine(checkUsername, "Username cannot include 'potato'"),
     email: z.string().email(),
-    password: z.string().min(10).regex(passwordRegex, "Password is too weak"),
+    password: z.string().min(10).regex(PASSWORD_REGEX, "Password is too weak"),
     passwordConfirm: z
       .string()
       .min(10)
-      .regex(passwordRegex, "Password is too weak"),
+      .regex(PASSWORD_REGEX, "Password is too weak"),
   })
   .refine(checkPassword, {
     path: ["passwordConfirm"],
